@@ -22,7 +22,12 @@ pipeline {
         stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'npx sonar-scanner -Dsonar.projectKey=mywebapp'
+                    sh """
+                        npx sonar-scanner \
+                            -Dsonar.projectKey=Simple-Jenkins \
+                            -Dsonar.host.url=$SONAR_HOST_URL \
+                            -Dsonar.token=$SONAR_AUTH_TOKEN
+                    """
                 }
             }
         }
