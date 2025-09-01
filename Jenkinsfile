@@ -2,9 +2,6 @@ pipeline {
     agent any
     tools { nodejs 'Node20' }
 
-    environment {
-        SONARQUBE = credentials('SonarQube') // ชื่อ Credential ของ Jenkins
-    }
 
     stages {
         stage('Checkout') {
