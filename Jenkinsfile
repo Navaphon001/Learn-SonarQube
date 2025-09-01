@@ -1,5 +1,6 @@
 pipeline {
-    agent { docker { image 'node:20' } }
+    agent any
+    tools { nodejs 'Node20' }
 
     environment {
         SONARQUBE = credentials('SonarQube') // ชื่อ Credential ของ Jenkins
