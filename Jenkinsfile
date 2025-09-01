@@ -6,10 +6,14 @@ pipeline {
         SONARQUBE = credentials('SonarQube') // ชื่อ Credential ของ Jenkins
     }
 
+    parameters {
+    string(name: 'GIT_BRANCH', defaultValue: 'main', description: 'Branch to build')
+  }
+
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Navaphon001/Learn-SonarQube'
+                git branch: params.GIT_BRANCH, url: 'https://github.com/Navaphon001/Learn-SonarQube'
             }
         }
 
