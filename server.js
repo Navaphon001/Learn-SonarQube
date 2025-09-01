@@ -35,3 +35,5 @@ app.get("/about", (req, res) => {
   res.send("About page");
 });
 */
+const { add } = require('./utils');
+console.log('2+3 =', add(2, 3));
