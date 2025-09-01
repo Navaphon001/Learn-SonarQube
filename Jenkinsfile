@@ -22,6 +22,14 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Show code') {
+        steps {
+            sh '''
+                echo "---- utils.js ----"; sed -n '1,120p' utils.js || true
+                echo "---- server.js ----"; sed -n '1,120p' server.js || true
+            '''
+        }
+}
 
         stage('SonarQube Scan') {
             steps {
